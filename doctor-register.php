@@ -27,7 +27,7 @@ if(isset($_POST['doctor_register'])){
 			$body.= "<p>We are really happy to have you with us. We appreciate your interest to work with us. <br></p>";
       $body.= "<p 'style=color:blue'>Before your access to our dashboard you are required to complete your registration by providing us more detail about your profession as well as additional information.  . <br></p>";
 			$body.= "<p>To get full authority of your dashboard please complete your registration by following the link below.<br></p>";
-			$body.= "<a href='localhost/doctor-appointment-booking/complete-doctor-registration.php?username=$name&email=$email'&mobile=$mobile>dhfugcbufhdiueygvucheiuhcugvbcyebjcrifhiceubvgfubcjwbjsbcbfvudhbvcjbdwdheucbbwebquucweucbecvwebcweuhdcvchduducwbwvhbswyetytfvchvhc</a><br><hr><hr>";
+			$body.= "<a href='localhost/doctor-appointment-booking/complete-doctor-registration.php?username=$name&email=$email&mobile=$mobile'>dhfugcbufhdiueygvucheiuhcugvbcyebjcrifhiceubvgfubcjwbjsbcbfvudhbvcjbdwdheucbbwebquucweucbecvwebcweuhdcvchduducwbwvhbswyetytfvchvhc</a><br><hr><hr>";
 			$body.= "you can change your password as soon as you get logged into our system from change password section .<br><hr><hr>";
 			$body.=  "<p>FROM BLACK FINANCIAL SOLUTION</p><br>";
 			$body.=  "<p 'style=color:red'>Please do not replay to this email. this is system generated email, for any query please contact us using our contact detail from our offical website.<br><hr></p><br>";

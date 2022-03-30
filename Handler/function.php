@@ -4,11 +4,10 @@ declare(strict_types = 1);
 interface DoctorInterface{
   public function RegisterDoctor($name,$mobile,$email);
   public function GetDocId($email);
-  public function AddPersonalDetail($email,$profile,$password,$gender,$dob, $bio,$price,$service_list,$category);
-  public function AddAddress($doc_id,$address_line_1,$address_line_2,$city,$state,$country,$pincode);
+  public function AddPersonalDetail($profile,$password,$gender,$dob, $bio,$price,$service_list,$category,$address,$martial_status);
   public function AddAward($doc_id,$award_name,$award_year);
   public function AddClinic($doc_id,$clinic_name,$clinic_address,$clinic_image);
-  public function AddExprience($doc_id,$exp_hosp,$from_date,$to_date,$design);
+  public function AddExperience($doc_id,$exp_hosp,$from_date,$to_date,$design);
   public function AddEducation($doc_id,$degree,$collage,$year_of_completion);
 }
 interface PatientInterface{
@@ -67,21 +66,16 @@ class DoctorHandler implements DoctorInterface{
 
   }
   
-  public function AddPersonalDetail($email,$profile,$password,$gender,$dob, $bio,$price,$service_list,$category){
+  public function AddPersonalDetail($profile,$password,$gender,$dob, $bio,$price,$service_list,$category,$address,$martial_status){
     global $connect;
     $sql = "UPDATE `doctors` SET `doc_password`='$password',
     `doc_dob`='$dob',`doc_gender`='$gender',`doc_category`='$specialization',
-    `doc_service_list`='$service_list',`doc_bio`='$bio',`doc_pricing`='$price'
+    `doc_service_list`='$service_list',`doc_bio`='$bio',`doc_pricing`='$price',`doc_address`='$address',`martial_status`='$martial_status'
      WHERE `doc_email`='$email'";
      
      $res= $connect->query($sql); 
   }
-  public function AddAddress($doc_id,$address_line_1,$address_line_2,$city,$state,$country,$pincode){
 
-    $sql3 = "INSERT INTO `doctor_address`(`doc_id`, `address_line1`, `address_line2`, `city`, `state`, `country`, `pincode`) 
-    VALUES ('$doc_id','$address_line_1','$address_line_2','$city','$state','$country','$pincode')";
-    $res3 = $connect->query($sql);
-  }
    public function AddEducation($doc_id,$degree,$collage,$year_of_completion){
     //  insert education
     $sql4 = "INSERT INTO `doctor_education`(`doc_id`, `degree_name`, `collage`, `year_completed`) 
@@ -94,7 +88,7 @@ class DoctorHandler implements DoctorInterface{
       VALUES ('$doc_id','$award_name','$award_year')";
       $res5 = $connect->query($sql5);
   }
-  public function AddExprience($doc_id,$exp_hosp,$from_date,$to_date,$design){
+  public function AddExperience($doc_id,$exp_hosp,$from_date,$to_date,$design){
       // insert Exprience
       $sql6 = "INSERT INTO `doctor_exprience`(`doc_id`, `hospital_name`, `from_date`, `to_date`, `designation`) 
         VALUES ('$doc_id','$exp_hosp','$from_date','$to_date','$design')";
